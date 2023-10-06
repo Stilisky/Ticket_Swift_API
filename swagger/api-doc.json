@@ -1,0 +1,442 @@
+{
+   "swagger": "2.0",
+   "info": {
+      "version": "1.0.0",
+      "title": "Ticket Swift API",
+      "description": "Ensemble des endpoints pour le fonctionnement de l'API Ticket Swift dévéloppé par ALPHAS TEAMS"
+   },
+   "basePath": "http://localhost:5000",
+   "paths": {
+      "/users": {
+         "get": {
+            "summary": "Get all users",
+            "responses": {
+               "200": {
+                  "description": "Ok"
+               },
+               "400": {
+                  "description":"Bad Parameters"
+               }
+            }
+         },
+         "post": {
+            "summary": "Create user",
+            "parameters":[
+               {
+                  "name":"body",
+                  "in": "body",
+                  "description": "User informations",
+                  "required": true,
+                  "schema": {
+                     "type": "object",
+                     "properties": {
+                        "username": {
+                           "type": "string"
+                        },
+                        "email":{
+                           "type": "string"
+                        },
+                        "password":{
+                           "type": "string"
+                        },
+                        "age":{
+                           "type": "string"
+                        },
+                        "sexe":{
+                           "type": "string"
+                        }
+                     }
+                  }
+               }
+            ],
+            "responses": {
+               "201": {
+                  "description": "User created Successfully"
+               },
+               "400": {
+                  "description":"Bad Parameters"
+               }
+            }
+         }
+      },
+      "/users/{id}": {
+         "get": {
+            "summary": "Get By user id",
+            "responses": {
+               "200": {
+                  "description": "Ok"
+               },
+               "400": {
+                  "description":"Bad Parameters"
+               }
+            }
+         },
+         "put": {
+            "summary": "Update user",
+            "parameters":[
+               {
+                  "name":"token",
+                  "in": "header",
+                  "description": "Jwt Authentication Token",
+                  "required": true,
+                  "type": "string"
+               },
+               {
+                  "name":"body",
+                  "in": "body",
+                  "description": "User informations",
+                  "required": true,
+                  "schema": {
+                     "type": "object",
+                     "properties": {
+                        "username": {
+                           "type": "string"
+                        },
+                        "email":{
+                           "type": "string"
+                        },
+                        "password":{
+                           "type": "string"
+                        },
+                        "age":{
+                           "type": "string"
+                        },
+                        "sexe":{
+                           "type": "string"
+                        }
+                     }
+                  }
+               }
+            ],
+            "responses": {
+               "201":{
+                  "description":"Update successfully"
+               },
+               "400": {
+                  "description":"Bad Parameters"
+               },
+               "403": {
+                  "description":"Invalid Credential"
+               }
+            }
+         },
+         "delete": {
+            "summary": "Delete user By id",
+            "parameters": [
+               {
+                  "name":"token",
+                  "in": "header",
+                  "description": "Jwt Authentication Token",
+                  "required": true,
+                  "type": "string"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "User deleted"
+               },
+               "400": {
+                  "description":"Bad Parameters"
+               },
+               "403": {
+                  "description":"Invalid Credential"
+               }
+            }
+         }
+      },
+
+      "/organisator": {
+         "get": {
+            "summary": "Get all organisators",
+            "responses": {
+               "200": {
+                  "description": "Ok"
+               },
+               "400": {
+                  "description":"Bad Parameters"
+               }
+            }
+         },
+         "post": {
+            "summary": "Create organisator",
+            "parameters":[
+               {
+                  "name":"body",
+                  "in": "body",
+                  "description": "Organisator informations",
+                  "required": true,
+                  "schema": {
+                     "type": "object",
+                     "properties": {
+                        "name": {
+                           "type": "string"
+                        },
+                        "email":{
+                           "type": "string"
+                        },
+                        "password":{
+                           "type": "string"
+                        },
+                        "country":{
+                           "type": "string"
+                        },
+                        "city":{
+                           "type": "string"
+                        },
+                        "ifu":{
+                           "type": "string"
+                        }
+                     }
+                  }
+               }
+            ],
+            "responses": {
+               "201": {
+                  "description": "Organisator created Successfully"
+               },
+               "400": {
+                  "description":"Bad Parameters"
+               }
+            }
+         }
+      },
+      "/organisators/{id}": {
+         "get": {
+            "summary": "Get organisator by id",
+            "responses": {
+               "200": {
+                  "description": "Ok"
+               },
+               "400": {
+                  "description":"Bad Parameters"
+               }
+            }
+         },
+         "put": {
+            "summary": "Update organisator",
+            "parameters":[
+               {
+                  "name":"token",
+                  "in": "header",
+                  "description": "Jwt Authentication Token",
+                  "required": true,
+                  "type": "string"
+               },
+               {
+                  "name":"body",
+                  "in": "body",
+                  "description": "Organisator informations",
+                  "required": true,
+                  "schema": {
+                     "type": "object",
+                     "properties": {
+                        "name": {
+                           "type": "string"
+                        },
+                        "email":{
+                           "type": "string"
+                        },
+                        "password":{
+                           "type": "string"
+                        },
+                        "country":{
+                           "type": "string"
+                        },
+                        "city":{
+                           "type": "string"
+                        },
+                        "ifu":{
+                           "type": "string"
+                        }
+                     }
+                  }
+               }
+            ],
+            "responses": {
+               "201":{
+                  "description":"Update successfully"
+               },
+               "400": {
+                  "description":"Bad Parameters"
+               },
+               "403": {
+                  "description":"Invalid Credential"
+               }
+            }
+         },
+         "delete": {
+            "summary": "Delete organisator By id",
+            "parameters": [
+               {
+                  "name":"token",
+                  "in": "header",
+                  "description": "Jwt Authentication Token",
+                  "required": true,
+                  "type": "string"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "Organisator deleted"
+               },
+               "400": {
+                  "description":"Bad Parameters"
+               },
+               "403": {
+                  "description":"Invalid Credential"
+               }
+            }
+         }
+      },
+
+      "/events": {
+         "get": {
+            "summary": "Get all Events",
+            "responses": {
+               "200": {
+                  "description": "Ok"
+               },
+               "400": {
+                  "description":"Bad Parameters"
+               }
+            }
+         },
+         "post": {
+            "summary": "Create event",
+            "parameters":[
+               {
+                  "name":"body",
+                  "in": "body",
+                  "description": "Event informations",
+                  "required": true,
+                  "schema": {
+                     "type": "object",
+                     "properties": {
+                        "name": {
+                           "type": "string"
+                        },
+                        "date":{
+                           "type": "string"
+                        },
+                        "lieu":{
+                           "type": "string"
+                        },
+                        "heure":{
+                           "type": "string"
+                        },
+                        "description":{
+                           "type": "string"
+                        },
+                        "price":{
+                           "type": "Number"
+                        },
+                        "sponsors":{
+                           "type": "string"
+                        }
+                     }
+                  }
+               }
+            ],
+            "responses": {
+               "201": {
+                  "description": "Event created Successfully"
+               },
+               "400": {
+                  "description":"Bad Parameters"
+               }
+            }
+         }
+      },
+      "/events/{id}": {
+         "get": {
+            "summary": "Get event by id",
+            "responses": {
+               "200": {
+                  "description": "Ok"
+               },
+               "400": {
+                  "description":"Bad Parameters"
+               }
+            }
+         },
+         "put": {
+            "summary": "Update event",
+            "parameters":[
+               {
+                  "name":"token",
+                  "in": "header",
+                  "description": "Jwt Authentication Token",
+                  "required": true,
+                  "type": "string"
+               },
+               {
+                  "name":"body",
+                  "in": "body",
+                  "description": "event informations",
+                  "required": true,
+                  "schema": {
+                     "type": "object",
+                     "properties": {
+                        "name": {
+                           "type": "string"
+                        },
+                        "date":{
+                           "type": "string"
+                        },
+                        "lieu":{
+                           "type": "string"
+                        },
+                        "heure":{
+                           "type": "string"
+                        },
+                        "description":{
+                           "type": "string"
+                        },
+                        "price":{
+                           "type": "Number"
+                        },
+                        "sponsors":{
+                           "type": "string"
+                        }
+                     }
+                  }
+               }
+            ],
+            "responses": {
+               "201":{
+                  "description":"Update successfully"
+               },
+               "400": {
+                  "description":"Bad Parameters"
+               },
+               "403": {
+                  "description":"Invalid Credential"
+               }
+            }
+         },
+         "delete": {
+            "summary": "Delete event By id",
+            "parameters": [
+               {
+                  "name":"token",
+                  "in": "header",
+                  "description": "Jwt Authentication Token",
+                  "required": true,
+                  "type": "string"
+               }
+            ],
+            "responses": {
+               "200": {
+                  "description": "event deleted"
+               },
+               "400": {
+                  "description":"Bad Parameters"
+               },
+               "403": {
+                  "description":"Invalid Credential"
+               }
+            }
+         }
+      }
+   }
+}  
